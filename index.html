@@ -83,6 +83,51 @@ font-size: 30px;
 
 <p><a href="https://www.thedodo.com/daily-dodo/woman-discovers-that-her-flowers-have-become-a-hotel-for-frogs">Dahlia Flower Hotel for Frogs</a></p>
 
-</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat API Example</title>
+</head>
+<body>
 
+<h1>Cat API Example</h1>
+
+<img id="catImage" alt="Random Cat Image" style="max-width: 100%;">
+
+<script>
+    // Function to fetch a random cat image from the Cat API
+    function fetchCatImage() {
+        // Cat API endpoint for random images
+        const catApiUrl = "https://api.thecatapi.com/v1/images/search";
+
+        // Fetch data from the Cat API
+        fetch(catApiUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Get the URL of the cat image
+                const imageUrl = data[0].url;
+
+                // Update the src attribute of the img element with the new cat image URL
+                document.getElementById("catImage").src = imageUrl;
+            })
+            .catch(error => {
+                console.error("Error fetching cat image:", error);
+            });
+    }
+
+    // Initial fetch when the page loads
+    fetchCatImage();
+</script>
+
+<!-- Button to fetch a new cat image -->
+<button onclick="fetchCatImage()">Get a New Cat Image</button>
+
+</body>
+</html>
+
+ 
+</body>
+ 
 </html>
